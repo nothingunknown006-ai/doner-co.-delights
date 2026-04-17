@@ -14,6 +14,12 @@ export default {
     },
     extend: {
       colors: {
+        brand: {
+          orange: "hsl(var(--brand-orange))",
+          ember: "hsl(var(--brand-ember))",
+          cream: "hsl(var(--brand-cream))",
+          charcoal: "hsl(var(--brand-charcoal))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -63,27 +69,29 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        display: ["Sora", "system-ui", "sans-serif"],
+        sans: ["Space Grotesk", "system-ui", "sans-serif"],
+      },
+      colors: {
+        brand: {
+          orange: "hsl(var(--brand-orange))",
+          ember: "hsl(var(--brand-ember))",
+          cream: "hsl(var(--brand-cream))",
+          charcoal: "hsl(var(--brand-charcoal))",
+        },
+      } as any,
       keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        "fade-in": { "0%": { opacity: "0", transform: "translateY(20px)" }, "100%": { opacity: "1", transform: "translateY(0)" } },
+        "scale-in": { "0%": { transform: "scale(0.92)", opacity: "0" }, "100%": { transform: "scale(1)", opacity: "1" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.7s cubic-bezier(0.22,1,0.36,1) both",
+        "scale-in": "scale-in 0.5s cubic-bezier(0.22,1,0.36,1) both",
       },
     },
   },
