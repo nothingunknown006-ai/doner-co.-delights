@@ -73,14 +73,6 @@ export default {
         display: ["Sora", "system-ui", "sans-serif"],
         sans: ["Space Grotesk", "system-ui", "sans-serif"],
       },
-      colors: {
-        brand: {
-          orange: "hsl(var(--brand-orange))",
-          ember: "hsl(var(--brand-ember))",
-          cream: "hsl(var(--brand-cream))",
-          charcoal: "hsl(var(--brand-charcoal))",
-        },
-      } as any,
       keyframes: {
         "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
         "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
