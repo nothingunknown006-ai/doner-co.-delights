@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Flame } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { label: "Menu", href: "#menu" },
@@ -27,7 +28,7 @@ export const Header = () => {
           paddingTop: scrolled ? 14 : 24,
           paddingBottom: scrolled ? 14 : 24,
         }}
-        className="fixed top-0 inset-x-0 z-50 flex justify-center px-4"
+        className="fixed top-0 inset-x-0 z-50 flex justify-center px-5 sm:px-8 lg:px-16 xl:px-24 2xl:px-32"
       >
         <motion.nav
           layout
@@ -39,22 +40,12 @@ export const Header = () => {
           }`}
         >
           <a href="#top" className="flex items-center gap-2 group">
-            <motion.span
-              whileHover={{ rotate: -12, scale: 1.15 }}
-              className="relative"
-            >
-              <Flame
-                className={`h-6 w-6 ${scrolled ? "text-brand-orange" : "text-brand-cream"}`}
-                strokeWidth={2.5}
-              />
-            </motion.span>
-            <span
-              className={`font-display font-extrabold tracking-tight text-lg ${
-                scrolled ? "text-brand-cream" : "text-brand-cream"
-              }`}
-            >
-              DONER & CO
-            </span>
+            <motion.img
+              src={logo}
+              alt="Doner & Co"
+              whileHover={{ scale: 1.05 }}
+              className={`w-auto transition-all ${scrolled ? "h-8" : "h-10 md:h-12"}`}
+            />
           </a>
 
           <div className="hidden md:flex items-center gap-1">
@@ -108,9 +99,7 @@ export const Header = () => {
               className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-gradient-ember p-8 flex flex-col"
             >
               <div className="flex items-center justify-between mb-12">
-                <span className="font-display font-extrabold text-brand-cream text-xl">
-                  DONER & CO
-                </span>
+                <img src={logo} alt="Doner & Co" className="h-9 w-auto" />
                 <button
                   onClick={() => setOpen(false)}
                   className="text-brand-cream p-2 -mr-2"
