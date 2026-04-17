@@ -99,9 +99,7 @@ export const Header = () => {
               className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-gradient-ember p-8 flex flex-col"
             >
               <div className="flex items-center justify-between mb-12">
-                <span className="font-display font-extrabold text-brand-cream text-xl">
-                  DONER & CO
-                </span>
+                <img src={logo} alt="Doner & Co" className="h-9 w-auto" />
                 <button
                   onClick={() => setOpen(false)}
                   className="text-brand-cream p-2 -mr-2"
