@@ -1,5 +1,4 @@
-import { Instagram, Facebook } from "lucide-react";
-import logo from "@/assets/logo.png";
+import { Flame, Instagram, Facebook } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -7,8 +6,9 @@ export const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div>
-            <div className="mb-4">
-              <img src={logo} alt="Doner & Co" className="h-12 w-auto" />
+            <div className="flex items-center gap-2 mb-4">
+              <Flame className="h-6 w-6 text-brand-cream" strokeWidth={2.5} />
+              <span className="font-display font-extrabold text-brand-cream text-xl">DONER & CO</span>
             </div>
             <p className="text-brand-cream/70 max-w-xs">
               Skewered, perfectly. Authentic Turkish doner by Monal Group.
