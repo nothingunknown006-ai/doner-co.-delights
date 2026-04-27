@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Flame } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const links = [
-  { label: "Menu", href: "#menu" },
-  { label: "Story", href: "#story" },
-  { label: "Locations", href: "#locations" },
+  { label: "Menu", href: "/menu" },
+  { label: "Our Food", href: "/our-food" },
+  { label: "Reservation", href: "/reservation" },
+  { label: "Feedback", href: "/feedback" },
 ];
 
 export const Header = () => {
@@ -38,7 +40,7 @@ export const Header = () => {
               : "w-full max-w-7xl px-6 py-3"
           }`}
         >
-          <a href="#top" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <motion.span
               whileHover={{ rotate: -12, scale: 1.15 }}
               className="relative"
@@ -48,37 +50,29 @@ export const Header = () => {
                 strokeWidth={2.5}
               />
             </motion.span>
-            <span
-              className={`font-display font-extrabold tracking-tight text-lg ${
-                scrolled ? "text-brand-cream" : "text-brand-cream"
-              }`}
-            >
+            <span className="font-display font-extrabold tracking-tight text-lg text-brand-cream">
               DONER & CO
             </span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-1">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
-                href={l.href}
-                className={`relative px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
-                  scrolled
-                    ? "text-brand-cream/80 hover:text-brand-cream"
-                    : "text-brand-cream/90 hover:text-brand-cream"
-                }`}
+                to={l.href}
+                className="relative px-4 py-2 text-sm font-semibold rounded-full text-brand-cream/85 hover:text-brand-cream transition-colors"
               >
                 <span className="relative z-10">{l.label}</span>
-              </a>
+              </Link>
             ))}
           </div>
 
-          <a
-            href="#locations"
+          <Link
+            to="/reservation"
             className="hidden md:inline-flex items-center bg-brand-cream text-brand-charcoal font-bold text-sm px-5 py-2.5 rounded-full hover:bg-white hover:scale-105 transition-all shadow-soft"
           >
-            Find us
-          </a>
+            Book a table
+          </Link>
 
           <button
             onClick={() => setOpen(true)}
@@ -121,17 +115,20 @@ export const Header = () => {
               </div>
               <nav className="flex flex-col gap-2">
                 {links.map((l, i) => (
-                  <motion.a
+                  <motion.div
                     key={l.href}
-                    href={l.href}
-                    onClick={() => setOpen(false)}
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + i * 0.08 }}
-                    className="font-display text-4xl font-extrabold text-brand-cream py-3 border-b border-brand-cream/15"
                   >
-                    {l.label}
-                  </motion.a>
+                    <Link
+                      to={l.href}
+                      onClick={() => setOpen(false)}
+                      className="block font-display text-4xl font-extrabold text-brand-cream py-3 border-b border-brand-cream/15"
+                    >
+                      {l.label}
+                    </Link>
+                  </motion.div>
                 ))}
               </nav>
               <div className="mt-auto text-brand-cream/70 text-sm">
