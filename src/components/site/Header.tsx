@@ -44,14 +44,20 @@ export const Header = () => {
           <Link to="/" className="flex items-center gap-2 group">
             <motion.span
               whileHover={{ rotate: -12, scale: 1.15 }}
+              animate={{ scale: scrolled ? 1 : 1.4 }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="relative"
             >
               <Flame
-                className={`h-6 w-6 ${scrolled ? "text-brand-orange" : "text-brand-cream"}`}
+                className={`${scrolled ? "h-6 w-6" : "h-9 w-9"} text-brand-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] transition-all`}
                 strokeWidth={2.5}
               />
             </motion.span>
-            <span className="font-display font-extrabold tracking-tight text-lg text-brand-cream">
+            <span
+              className={`font-display font-extrabold tracking-tight text-brand-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] transition-all ${
+                scrolled ? "text-lg" : "text-2xl md:text-3xl"
+              }`}
+            >
               DONER & CO
             </span>
           </Link>
