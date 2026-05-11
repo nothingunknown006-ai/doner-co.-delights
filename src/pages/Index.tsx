@@ -1,5 +1,5 @@
 import { Header } from "@/components/site/Header";
-import { Hero } from "@/components/site/Hero";
+import { Banner } from "@/components/site/Banner";
 import { Marquee } from "@/components/site/Marquee";
 import { Story } from "@/components/site/Story";
 import { Menu } from "@/components/site/Menu";
@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <Header />
-      <Hero />
+      <Banner />
       <Marquee />
       <Story />
       <SignatureFood />
